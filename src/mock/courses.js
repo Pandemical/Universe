@@ -1,0 +1,48 @@
+export const courses = [
+    {
+      id: 1,
+      title: 'Web Development for Beginners',
+      instructor: 'John Doe',
+      price: 99.99,
+      category: 'Development',
+      image: 'https://via.placeholder.com/150',
+      rating: 4.5,
+    },
+    {
+      id: 2,
+      title: 'Data Science with Python',
+      instructor: 'Jane Smith',
+      price: 149.99,
+      category: 'Data Science',
+      image: 'https://via.placeholder.com/150',
+      rating: 4.7,
+    },
+    {
+      id: 3,
+      title: 'Introduction to AI',
+      instructor: 'Alice Johnson',
+      price: 199.99,
+      category: 'AI & Machine Learning',
+      image: 'https://via.placeholder.com/150',
+      rating: 4.8,
+    },
+    {
+      id: 4,
+      title: 'Design Thinking and Innovation',
+      instructor: 'Michael Brown',
+      price: 89.99,
+      category: 'Art & Design',
+      image: 'https://via.placeholder.com/150',
+      rating: 4.2,
+    },
+    {
+      id: 5,
+      title: 'Mastering Business Analytics',
+      instructor: 'Rachel Green',
+      price: 120.00,
+      category: 'Business',
+      image: 'https://via.placeholder.com/150',
+      rating: 4.6,
+    },
+  ];
+  

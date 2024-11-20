@@ -17,6 +17,19 @@ main{
     display: flex;
     justify-content: space-between;
 }
+#courses-list-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    flex-wrap: wrap;
+}
+
+#filters-container{
+    margin-top: 350px;
+}
+#courses-list-container{
+    margin-top: 350px;
+}
 
 .sort{
     width: 310px;
