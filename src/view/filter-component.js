@@ -15,23 +15,16 @@ function createFilterComponentTemplate() {
       </fieldset>
       <fieldset class="language">
         <h2>Language</h2>
-        <input type="checkbox" name="language" value="All Language" /> All Language <br>
+        <input type="checkbox" name="language" value="All Language" checked="true" /> All Language <br>
         <input type="checkbox" name="language" value="Arabic" /> Arabic <br>
         <input type="checkbox" name="language" value="English" /> English <br>
         <input type="checkbox" name="language" value="Spanish" /> Spanish <br>
       </fieldset>
       <fieldset class="price">
         <h2>Price</h2>
-        <input type="checkbox" name="price" value="All Price" /> All Price <br>
+        <input type="checkbox" name="price" value="All Price" checked="true" /> All Price <br>
         <input type="checkbox" name="price" value="Free" /> Free <br>
         <input type="checkbox" name="price" value="Paid" /> Paid <br>
-      </fieldset>
-      <fieldset class="skills">
-        <h2>Skill level</h2>
-        <input type="checkbox" name="skills" value="All Skills" /> All Skills <br>
-        <input type="checkbox" name="skills" value="Beginner" /> Beginner <br>
-        <input type="checkbox" name="skills" value="Intermediate" /> Intermediate <br>
-        <input type="checkbox" name="skills" value="High" /> High <br>
       </fieldset>
       <fieldset class="instructors">
         <h2>Instructors</h2>
@@ -53,8 +46,10 @@ function createFilterComponentTemplate() {
 }
 
 export default class FilterComponent extends AbstractComponent {
-  constructor() {
+  #onFilterChange = null;
+  constructor(onFilterChange) {
     super();
+    this.#onFilterChange = onFilterChange; // Метод для передачи данных в модель
   }
 
   get template() {
@@ -64,8 +59,17 @@ export default class FilterComponent extends AbstractComponent {
   setEventListeners() {
     this.element.querySelectorAll('input').forEach(input => {
       input.addEventListener('change', (event) => {
-        console.log(`Filter changed: ${event.target.name} = ${event.target.value}`);
+        const filterName = event.target.name;
+        const checkedInputs = Array.from(
+          this.element.querySelectorAll(`input[name="${filterName}"]:checked`)
+        ).map(input => {
+          return input.value; // Оставляем строковые значения
+        });
+  
+        // Обновляем фильтр через callback
+        this.#onFilterChange(filterName, checkedInputs.length > 0 ? checkedInputs : null);
       });
     });
   }
+  
 }

@@ -8,32 +8,37 @@ export default class CoursesBoardPresenter {
     this.#boardContainer = boardContainer;
     this.#coursesModel = coursesModel;
 
-    this.#coursesModel.addObserver(this._handleModelChange);
+    // Добавляем слушателя на обновление модели
+    this.#coursesModel.addObserver(() => this.#renderCourses());
   }
 
   init() {
-    this._renderCourses();
-  }
-
-  _renderCourses() {
-    this.#boardContainer.innerHTML = ''; 
-
-    const courses = this.#coursesModel.courses;
-
-    courses.forEach(course => {
-      console.log('Current course:', course); 
-      const courseComponent = new CourseCardComponent({ course });
-      this.#boardContainer.append(courseComponent.element);
-    });
-    
-    
+    this.#renderCourses();
   }
 
   setCategoryFilter(filterName, filterValue) {
     this.#coursesModel.setFilter(filterName, filterValue);
   }
 
-  _handleModelChange = () => {
-    this._renderCourses();
-  };
+  #clearCourses() {
+    this.#boardContainer.innerHTML = ''; // Очищаем контейнер
+  }
+
+  #renderCourses() {
+    this.#clearCourses();
+  
+    const courses = this.#coursesModel.courses;
+  
+    courses.forEach((course) => {
+      const courseCardComponent = new CourseCardComponent({
+        course,
+        onEnroll: (course) => this.#coursesModel.addToCart(course), // Передаём обработчик
+      });
+      this.#boardContainer.appendChild(courseCardComponent.element);
+      courseCardComponent.setEventListeners(); // Устанавливаем обработчики после добавления в DOM
+      
+    });
+  }
+  
+  
 }

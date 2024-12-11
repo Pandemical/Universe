@@ -9,7 +9,7 @@ body{
 /* Header */
 
 .container{
-    width: 100%;
+    width: 100%, 1920px;
     display: flex;
     margin: 0px 152px;
     justify-content: space-between;
@@ -102,6 +102,7 @@ body{
     border-radius: 50px;
     background-color: #FFC224;
     box-shadow: 4px 6px 0px 0px #050071;
+    cursor: pointer;
 }
 /* Main */
 main{

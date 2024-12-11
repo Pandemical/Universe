@@ -18,13 +18,28 @@ function createCourseCardComponentTemplate(course) {
   `);
 }
 export default class CourseCardComponent extends AbstractComponent {
-  constructor({ course } = {}) {
+  constructor({ course, onEnroll }) { // Добавлен обработчик onEnroll
     super();
-    this.course = course || {}; 
+    this.course = course || {};
+    this.onEnroll = onEnroll; 
   }
-  
 
   get template() {
     return createCourseCardComponentTemplate(this.course);
   }
+
+  setEventListeners() {
+    const button = this.element.querySelector('button');
+    if (!button) {
+      console.error('Кнопка "Enroll Now" не найдена!');
+      return;
+    }
+    button.addEventListener('click', () => {
+      if (this.onEnroll) {
+        this.onEnroll(this.course); // Добавляем курс в корзину
+      }
+    });
+  }
+  
 }
+
