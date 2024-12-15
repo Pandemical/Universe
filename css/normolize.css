@@ -20,10 +20,7 @@
    * Remove the margin in all browsers.
    */
   
-  body {
-    margin: 0;
-    background-color: aliceblue;
-  }
+
   
   /**
    * Render the `main` element consistently in IE.
@@ -37,16 +34,6 @@
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
    */
-  
-  h1 {
-    font-size: 2em;
-    height: 50px;
-    margin: 0px;
-    padding-left: 35px;
-    padding-top: 15px;
-    color: white;
-    background-color: rgb(76, 130, 230);
-  }
   
   /* Grouping content
      ========================================================================== */

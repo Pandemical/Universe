@@ -19,7 +19,8 @@ main{
 }
 #courses-list-container{
     display: flex;
-    justify-content: space-between;
+    margin-left: 200px;
+    justify-content: flex-start;
     max-width: 1080px;
     flex-wrap: wrap;
 }
@@ -28,20 +29,10 @@ main{
     margin-top: 350px;
 }
 #courses-list-container{
-    margin-top: 350px;
+    margin-top: 420px;
+    justify-content: flex-start;
 }
 
-.sort{
-    width: 310px;
-}
-
-fieldset{
-    margin-bottom: 30px;
-    border: none;
-    border-radius: 10px;
-    background-color: #F7F7F9;
-    
-}
 
 .boxes{
     max-width: 1080px;
@@ -51,12 +42,13 @@ fieldset{
 .box{
     width: 330px;
     height: 454.38px;
+    margin-left: 14px;
     margin-bottom: 30px;
     border: solid 1px #B5B5C3;
     border-radius: 10px;
 }
 
-.box button{
+.box button:first-child{
     width: 133.45px;
     height: 40px;
     background-color: #FFC224;
@@ -65,54 +57,164 @@ fieldset{
     box-shadow: 4px 4px 0px 0px #3D3D3D;
     cursor: pointer;
 }
-.cart-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .cart-modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 300px;
-  }
-  
-  .cart-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .cart-list .cart-item {
-    margin-bottom: 10px;
-  }
-  
-  .cart-modal-actions {
-    margin-top: 20px;
-  }
-  
-  .clear-cart-button,
-  .close-modal-button {
-    margin: 5px;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.modal h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.add-course-form label {
+  display: block;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.add-course-form input {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-button, .cancel-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  margin-left: 10px;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Form Elements */
+.edit-course-form label {
+  display: block;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.edit-course-form input {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.edit-course-form input[type="url"] {
+  border-color: #a5a5a5;
+  font-style: italic;
+}
+
+.edit-course-form input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.6);
+}
+
+/* Buttons */
+.save-button, .cancel-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+  margin-left: 10px;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.button-add-course{
+    width: 57%;
     padding: 10px;
-    border: none;
-    background: #007bff;
-    color: white;
+    background-color: #FFC224;
+    border: solid 1px #000000;
+    border-radius: 50px;
+    box-shadow: 4px 4px 0px 0px #050071;
     cursor: pointer;
-    border-radius: 5px;
-  }
+    font-size: 16px;
+    text-align: center;
+    left: 63%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 460px;
+}
+
+.delete-button {
+  height: 40px;
+  background-color: #f44336;
+  border: solid 1px #000000;
+  border-radius: 50px;
+  box-shadow: 4px 4px 0px 0px #3D3D3D;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+.no-courses-message {
   
-  .clear-cart-button:hover,
-  .close-modal-button:hover {
-    background: #0056b3;
-  }
-  
+  font-size: 50px;
+  color :#4e2699;
+  text-align: center;
+  margin-top: 100px;
+}

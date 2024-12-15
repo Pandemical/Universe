@@ -63,10 +63,9 @@ export default class FilterComponent extends AbstractComponent {
         const checkedInputs = Array.from(
           this.element.querySelectorAll(`input[name="${filterName}"]:checked`)
         ).map(input => {
-          return input.value; // Оставляем строковые значения
+          return input.value;
         });
   
-        // Обновляем фильтр через callback
         this.#onFilterChange(filterName, checkedInputs.length > 0 ? checkedInputs : null);
       });
     });

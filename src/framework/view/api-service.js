@@ -1,8 +1,8 @@
 export default class ApiService {
  
-    constructor(endPoint) {
-      this._endPoint = endPoint;
-    }
+  constructor(endPoint) {
+    this.endPoint = endPoint;
+  }
 
     async _load({
       url,
@@ -11,7 +11,7 @@ export default class ApiService {
       headers = new Headers(),
     }) {
       const response = await fetch(
-        `${this._endPoint}/${url}`,
+        `${this.endPoint}/${url}`,
         { method, body, headers },
       );
        try {
