@@ -50,8 +50,8 @@ export default class AddCourseModalComponent extends AbstractComponent {
         instructor: formData.get('instructor'),
         price: parseFloat(formData.get('price')),
         category: formData.get('category'),
-        image: formData.get('image') || 'image/noimg.png', // Значение по умолчанию
-        rating: formData.get('rating') || 'none', // Значение по умолчанию
+        image: formData.get('image') || 'image/noimg.png', 
+        rating: formData.get('rating') || 'none',  
       };
       if (this.onSubmit) this.onSubmit(newCourse);
     });

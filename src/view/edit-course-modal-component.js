@@ -35,7 +35,7 @@ export default class EditCourseModalComponent extends AbstractComponent {
       super();
       this.onSubmit = onSubmit;
       this.onClose = onClose;
-      this.courseApiService = courseApiService; // Убедитесь, что courseApiService присваивается
+      this.courseApiService = courseApiService; 
     }
   
     get template() {

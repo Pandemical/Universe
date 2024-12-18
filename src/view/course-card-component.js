@@ -21,10 +21,9 @@ function createCourseCardComponentTemplate(course) {
 }
 
 export default class CourseCardComponent extends AbstractComponent {
-  constructor({ course, onEnroll, onEdit, onDelete }) { 
+  constructor({ course, onEdit, onDelete }) { 
     super();
     this.course = course || {};
-    this.onEnroll = onEnroll;
     this.onEdit = onEdit;
     this.onDelete = onDelete;
   }
@@ -34,15 +33,6 @@ export default class CourseCardComponent extends AbstractComponent {
   }
 
   setEventListeners() {
-    const enrollButton = this.element.querySelector('button:not(.edit-button)');
-    if (enrollButton) {
-      enrollButton.addEventListener('click', () => {
-        if (this.onEnroll) {
-          this.onEnroll(this.course);
-        }
-      });
-    }
-  
     const editButton = this.element.querySelector('.edit-button');
     if (editButton) {
       editButton.addEventListener('click', () => {

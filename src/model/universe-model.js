@@ -1,6 +1,5 @@
 export default class CoursesModel {
   #courses = [];
-  #cart = [];
   #observers = [];
   #courseApiService = null;
   #filters = {
@@ -31,13 +30,6 @@ export default class CoursesModel {
     return this.#courses.filter((course) => this.#applyFilters(course));
   }
 
-  get cart() {
-    return this.#cart;
-  }
-
-  get totalCartPrice() {
-    return this.#cart.reduce((total, course) => total + course.price, 0);
-  }
 
   addObserver(observer) {
     if (typeof observer === 'function') {

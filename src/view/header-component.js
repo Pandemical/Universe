@@ -1,6 +1,6 @@
 import { AbstractComponent } from "../framework/view/abstract-component.js";
 
-function createHeaderComponentTemplate(cartTotal) {
+function createHeaderComponentTemplate() {
     return `
       <header class="header">
         <div class="container">
@@ -31,40 +31,7 @@ function createHeaderComponentTemplate(cartTotal) {
   }
   
   export default class HeaderComponent extends AbstractComponent {
-    constructor(cartTotal = 0, onClearCart, onShowCart) {
-      super();
-      this.cartTotal = cartTotal;
-      this.onClearCart = onClearCart;
-      this.onShowCart = onShowCart;
-    }
-  
     get template() {
-      return createHeaderComponentTemplate(this.cartTotal);
+      return createHeaderComponentTemplate();
     }
-  
-    setEventListeners() {
-        const clearCartButton = this.element.querySelector('.clear-cart-button');
-        if (clearCartButton) {
-          clearCartButton.addEventListener('click', () => {
-            if (this.onClearCart) {
-              this.onClearCart();
-            }
-          });
-        }
-
-        this.element.querySelector('.header-button').addEventListener('click', () => {
-          if (this.onShowCart) {
-            this.onShowCart(); 
-          }
-        });
-      }      
-      updateElement() {
-        const oldElement = this.element;
-        this.removeElement(); 
-        const newElement = this.element; 
-        oldElement.replaceWith(newElement); 
-      
-        this.setEventListeners(); 
-      }
-      
   }
